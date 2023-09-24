@@ -1,0 +1,41 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Escolas</title>
+  </head>
+  <body>
+    <h1>Cadastro de Escolas</h1>
+
+    <form id="formEscola" action="/criarEscola" method="POST">
+      <input
+        type="text"
+        id="nomeEscola"
+        name="nome"
+        placeholder="Nome da Escola"
+      />
+      <input
+        type="text"
+        id="cnpjEscola"
+        name="cnpj"
+        placeholder="CNPJ da Escola"
+      />
+      <input
+        type="password"
+        id="senhaEscola"
+        name="senha"
+        placeholder="Senha da Escola"
+      />
+      <button type="submit">Criar Escola</button>
+    </form>
+
+    <h2>Escolas Cadastradas</h2>
+    <ul id="listarEscolas">
+      <% escolas.forEach(function(escola) { %>
+      <li>Nome: <%= escola.nome %>, CNPJ: <%= escola.cnpj %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
