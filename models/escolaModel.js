@@ -1,33 +1,16 @@
-const database = require("../database/db");
-const bcrypt = require("bcrypt");
+const connection = require("../database/db");
 
-class EscolaModel {
-  criarEscola(nome, cnpj, senha) {
-    const hashSenha = bcrypt.hashSync(senha, 10);
-    return new Promise((resolve, reject) => {
-      database.query(
-        "insert into escola (nome, cnpj, senha) values (?, ?, ?)",
-        [nome, cnpj, hashSenha],
-        (err, results) => {
-          if (err) {
-            return reject(err);
-          }
-          resolve(results.insertId);
-        }
-      );
-    });
-  }
-
-  async listarEscolas() {
-    return new Promise((resolve, reject) => {
-      database.query("select * from escola; ", (err, results) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(results);
-      });
-    });
-  }
+function listarEscolas(callback) {
+  const escolaQuery = "select id_escola, nome from escola;";
+  connection.query(escolaQuery, (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  });
 }
 
-module.exports = EscolaModel;
+module.exports = {
+    listarEscolas
+};
