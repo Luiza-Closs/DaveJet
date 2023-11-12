@@ -1,5 +1,4 @@
 const connection = require('../database/db');
-const Sequelize = require("sequelize");
 
 async function cripaSenha (senha){
     const rounds = 19;
