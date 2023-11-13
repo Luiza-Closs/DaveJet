@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const path = require('path')
 const cadastroController = require('./controllers/cadastroController');
 
-const router = require('./routers/routers');
+//const router = require('./routers/routers');
 
 const app = express();
 const database = require('./database/db');
 const { Turma } = require('./models/turmaModel');
 const AlunoController = require('./controllers/alunoController')
-const PORT = 5511
+const jogoController = require('./controllers/jogoController')
+const PORT = 2000
 
 
 database.connect((err) => {
@@ -18,12 +19,11 @@ database.connect((err) => {
         return
     }
     console.log("Conexão bem sucedida")
-})
+});
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
-app.use(express.static("image"))
-app.use(express.static("style"))
+app.use(express.static("public"))
 
 
 app.get('/cadastro', cadastroController.escolasNoCadastro);
@@ -53,3 +53,11 @@ app.get('/cadastroAluno', async(req, res) =>{
 })
 
 app.post('/cadastroAluno', AlunoController.criarAluno);
+
+app.get("/listaJogo", jogoController.listarJogos)
+
+app.get('/jogo/:id', (req, res) => {
+    const caminhoAbsoluto = path.join(__dirname, 'views', 'telaJogo.ejs');
+    console.log('Caminho Completo:', caminhoAbsoluto);
+    res.render(caminhoAbsoluto);
+});

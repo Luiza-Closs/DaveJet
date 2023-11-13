@@ -8,7 +8,8 @@ class Jogo {
         this.categoria = categoria;
         this.caminho = caminho;
     }
-    listar(){
+    static async listar(){
+        console.log('chegou no model');
         const query = `select * from jogo order by dificuldade`
         return new Promise((resolve, reject) =>{
             connection.query(query, function(err, results){
@@ -16,6 +17,7 @@ class Jogo {
                     reject("Erro na consulta")
                 } else {
                     resolve(results)
+                    console.log(results)
                 }
             })
         })

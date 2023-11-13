@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listagem de Jogos</title>
+</head>
+<body>
+  <h1>Listagem de Jogos</h1>
+
+  <table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Dificuldade</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% jogos.forEach(jogo => {%>
+        <tr>
+            <td><%= jogo.nome %></td>
+            <td><%= jogo.descricao %></td>
+            <td><%= jogo.dificuldade %></td>
+            <td><%= jogo.categoria %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+  
+  <ul>
+    <% jogos.forEach(jogo => { %>
+      <li>
+        <strong><%= jogo.nome %></strong> - Dificuldade: <%= jogo.dificuldade %>, Categoria: <%= jogo.categoria %>
+        <a href="/jogo/<%= jogo.id_jogo %>">Ver Detalhes</a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
