@@ -1,7 +1,6 @@
-const userModel = require('../models/userModel')
-const escolaModel = require('../models/escolaModel')
+const { Usuario } = require('../models/userModel');
 
-function escolasNoCadastro(req, res){
+/*function escolasNoCadastro(req, res){
     escolaModel.listarEscolas((err, escolas) =>{
         if (err) {
             console.error('Erro au buscar escolas: ', err)
@@ -12,21 +11,18 @@ function escolasNoCadastro(req, res){
             res.render('formularioCadastro',{ escolas })
         }
     })
-}
+}*/
 
 function cadastroController(req, res){
-    const {nome, email, cpf, senha, escolaSelecionada } = req.body;
-    userModel.addUser( nome, email, cpf, senha, escolaSelecionada, (err, results) => {
-        if (err) {
-            console.error('erro ao adicionar usuario: ', err)
-        } else {
-            console.log('Usuario adicionado com sucesso.')
-            res.redirect('')
-        }
-    })
+    const { id, nome, email, senha, id_escola} = req.body;
+    const novoUser = new Usuario( id, nome, email, senha, id_escola );
+    console.log(novoUser);
+    novoUser
+        .cadastrar(id_escola)
+        .then(()=> console.log("pessoa cadastrada!"))
+        console.log(novoUser)
 }
 
 module.exports = {
-    cadastroController,
-    escolasNoCadastro
+    cadastroController
 }

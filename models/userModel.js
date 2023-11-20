@@ -1,4 +1,5 @@
 const connection = require('../database/db');
+const bcrypt = require('bcrypt');
 
 async function cripaSenha (senha){
     const rounds = 19;
@@ -8,23 +9,27 @@ async function cripaSenha (senha){
 }
 
 class Usuario {
-
-    async cadastrar( nome , email , senha , id_escola ){
-        const query = "insert into pessoa ( nome , email ) value ('"+nome+"' , '"+data+"' )";
-        let resPessoa = await connection.query(query);
-
-        if(resPessoa){
-            query = "insert into usuario ( id_pessoa , senha ) value ('"+resPessoa.insertId+"' , '"+cripaSenha(senha)+"' )";
-            let resUsuario = await connection.query(query);
-            if(resUsuario){
-                resp = { "Status":"Não Bugou", 'id_pessoa':resPessoa.insertId }
-            } else {
-                resp = { "Status":"Bugou", "error":resUsuario}
-            }
-        } else{
-            resp = { "Status":"Bugou", "error":resPessoa}
-        }
-        return resp;
+    constructor(id, nome, email, senha, id_escola){
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.id_escola = id_escola;
+    }
+    async cadastrar(id_escola){
+        const senhazin = await cripaSenha(this.senha)
+        console.log(this.nome)
+        const query = `insert into pessoa (nome, email) values ('${this.nome}' , '${this.email}'); insert into usuario (senha, id_escola) values ('${senhazin}', ${id_escola})`;
+        return new Promise((resolve, reject) => {
+            connection.query(query, (e, result) => {
+                if (e) {
+                    reject(e);
+                } else {
+                    resolve(result + 'Pessoa adicionada');
+                }
+            });
+        });
+        
 
     }
     async autenticar( email , senha ){
@@ -32,4 +37,4 @@ class Usuario {
     }
 }
 
-module.exports = Usuario;
+module.exports = { Usuario };

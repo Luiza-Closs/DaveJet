@@ -1,19 +1,100 @@
-*{
-    background-color:#2D328E;
-    font-size: small;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+body {
+  background-color: #2d328e;
+}
+* {
+  font-family: "Josefin Sans", sans-serif;
 }
 
-header{
-    width: 90%;
-    margin-left: 5%;
+header {
+  width: 90%;
+  margin-left: 5%;
 }
-footer{
-    background-color: orange;
+footer {
+  background-color: orange;
+}
+img {
+  width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  color: #4b220c;
+  margin-left: 10px;
+}
+hr{
+    border: 0;
+    border-top: 2px dashed #f2ae4b;
+    border-bottom: 5px solid #65b3c7;
+    height: 10px;
+    opacity: 0.7;
 }
 
-.logo{
-    height: 36px;
+.imagem {
+  height: 100%;
 }
-.imagem{
-    height: 100%;
+.btn {
+  border-radius: 50px;
+  margin-right: 5px;
+  color: #fff;
+}
+.btn-entrar {
+  background-color: #f2ae4b;
+  box-shadow: 5px 5px #65b3c7;
+}
+.btn-entrar:hover {
+  box-shadow: 0 0 transparent;
+  background-color: #65b3c7;
+}
+.btn-entrar:active {
+  transform: translateY(-2px);
+  background-color: #f2ae4b;
+}
+.btn-cadastrar {
+  background-color: #65b3c7;
+  box-shadow: 5px 5px #f2ae4b;
+}
+.btn-cadastrar:hover {
+  box-shadow: 0 0 transparent;
+  background-color: #f2ae4b;
+}
+.btn-cadastrar:active {
+  transform: translateY(-2px);
+  background-color: #65b3c7;
+}
+.navi {
+  background-color: #f2ae4b;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 4% 4% 0% 0% / 90% 90% 0% 0%;
+  font-family: "Josefin Sans", sans-serif;
+}
+.navi a {
+  color: #ffffff80;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.navi a:hover {
+  color: #ffffff;
+}
+.main {
+  background-color: #ffffff;
+  width: 90%;
+  margin-left: 5%;
+}
+.image {
+  width: 30vw;
+}
+.planeta {
+  margin-bottom: -50px;
+  margin-top: -70px;
+}
+.caixa-texto {
+  margin-top: 25px;
 }

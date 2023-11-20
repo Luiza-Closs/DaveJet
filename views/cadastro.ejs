@@ -7,24 +7,31 @@
 </head>
 <body>
     <h1> Cadastro de usuario</h1>
-    <form action="/cadastroUsuario" method="post">
-        <label for="nome">Nome: </label>
-        <input type="text" id="nome" name="nome">
-        <br>
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email">
-        <br>
-        <label for="senha">Senha: </label>
-        <input type="password" name="senha" id="senha">
-        <br>
-        <label for="escola">Escola: </label>
-        <select name="escolaSelecionada">
-            <% escolas.forEach(escola =>{ %>
-            <option value="<%= escola.id %>"><%=escola.nome %></option>
-            <% })%>
-        </select>
-        <br>
-        <button type="submit">Cadastrar</button>
+    <form action="/cadastro" method="post">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" name="nome">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="senha">
+        </div>
+        <div>
+            <label for="escola">Escola: </label>
+            <select name="id_escola" id="id_escola">
+                <% escolas.forEach(escola =>{ %>
+                <option value="<%= escola.id %>"><%=escola.nome %></option>
+                <% })%>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+        
     </form>
 </body>
 </html>

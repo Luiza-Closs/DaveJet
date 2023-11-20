@@ -14,7 +14,9 @@ async function listarJogos(req, res){
 async function encontrarJogo (req, res){
     try{
         const caminho = await Jogo.achar(req.params.id);
-        res.redirect(`/views/games/${caminho}`)
+        const caminhoCompleto = `/game${caminho}/script.js`;
+        console.log({ caminhoCompleto })
+        res.json({ caminhoCompleto });
     } catch ( e ){
         res.status(404).json({ error: 'Não foi possível localizar o jogo.' })
     }

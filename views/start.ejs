@@ -1,12 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Aqui sera a landpage</h1>
-    <a href="/controllers/cadastroController.js">Cadastrar</a>
-</body>
-</html>
+<%- include('layout/nao-cadastrado/header') %>
+<nav class="nav navi nav-underline justify-content-between">
+  <a class="nav-item nav-link link-body-emphasis active" href="#Oque"
+    >Sobre nós</a
+  >
+  <a class="nav-item nav-link link-body-emphasis" href="#serv">Serviços</a>
+  <a class="nav-item nav-link link-body-emphasis" href="#equi"
+    >Conheça a equipe</a
+  >
+  <a class="nav-item nav-link link-body-emphasis" href="#cont"
+    >Entre em contato</a
+  >
+</nav>
+<div class="main">
+    <br>
+  <div class="col-12 row">
+    <div class="col-4">
+      <img src="image/dave_feliz.png" alt="" />
+    </div>
+    <div class="col-8">
+      <div class="caixa-texto">
+        <h3>PREPARE-SE PARA DECOLAR COM O DAVE.JET!</h3>
+        <div class="col-7">
+          <p>
+            Descubra como tornar o ensino da fase alfabética uma experiência
+            cativante e repleta de resultados positivos
+          </p>
+        </div>
+      </div>
+      <div class="col-5 offset-7 planeta">
+        <img src="image/Planeta02.png" alt="" />
+      </div>
+    </div>
+    <div class="col-9 align-items-center">
+      <h3>
+        COM UMA INTERFACE CONVIDATIVA, DAVE.JET APRESENTA UMA NOVA FORMA DE
+        INTEGRAR JOGOS COM EDUCAÇÃO
+      </h3>
+    </div>
+    <div class="col-12 align-items-center">
+      <p>
+        Apresentando mais de tres interfaces diferentes, a plataforma apresenta
+        um jogo educativo para alunos e um relatório de execução para
+        professores e administrações
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row col-12">
+    <div>
+        <h3 id="Oque">SOBRE NÓS</h3>
+        <p> Dave.jet é um site educacional voltado para crianças em fase de alfabetização. Nosso objetivo é tornar o aprendizado algo mais divertido e envolvente, tanto pro aluno, quanto para o professor.</p>
+        <div class="row col-12">
+            <div class="col-9">
+                <p> Nosso diferencial aos outros jogos é o nosso sistema de feedback, para o aluno é um jogo normal, porém todas as pontuações estao sendo gravadas e mostradas para o professor, erros acertos e a quantidade de vezes realizada. Assim a plataforma pode ser usada para encontrar as principais dificuldades dos alunos e transformar a sala de aula, um lugar de aprendizado mais acertivo.</p>
+            </div>
+            <div class="col-3">
+                <img src="image/Nave.png" alt="">
+            </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h3 id="serv">SERVIÇOS</h3>
+    <div class="gap-1 row col-12 justify-content-center">
+        <div class="card text-white mb-2 col-8">
+            <div class="card-body">
+                <h5 class="card-title"><span class="material-symbols-outlined" style="color: #f2ae4b">
+                    your_trips
+                </span>Plataforma Aluno</h5>
+                <small class="card-text">De uma forma totalmente gamificada, oferecemos jogos educacionais que vão ficando mais desafiadores de acordo com a passagem de nivel. Assim, mantendo o aluno entrertido por mais tempo, ao mesmo tempo em que aprende por mais tempo.</small>
+            </div>
+        </div>
+        <div class="card text-white mb-2 col-8">
+            <div class="card-body">
+                <h5 class="card-title"><span class="material-symbols-outlined" style="color: #2d328e;">
+                    stylus
+                    </span>Plataforma Professor</h5>
+                <small class="card-text">Oferecemos uma interface totalmente voltada para o professor, onde está disponibilizado todas as informações cadastradas dos alunos, incluindo seus resultados obtidos em nossos jogos.</small>
+            </div>
+        </div>
+        <div class="card text-white mb-2 col-8">
+            <div class="card-body">
+                <h5 class="card-title"><span class="material-symbols-outlined" style="color:#65b3c7;">
+                    school
+                    </span>Plataforma Escola</h5>
+                <small class="card-text">De uma forma próxima ao professor, oferecemos uma plataforma voltada para a escola, onde pode ser obtido todas as médias de pontos de cada turma cadastrada e média de cada aluno.</small>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+  <hr>
+  <div>
+    <h3 id="equi">CONHEÇA A EQUIPE</h3>
+    <div class="gap-2 row col-12 justify-content-center">
+        <div class="col-4 card">
+            <div class="col-6 offset-3 p-2">
+                <img class="rounded-circle" src="image/luiza.jpeg" alt="">
+            </div>
+            <div>
+                <h5>LUIZA CLOSS</h5>
+                <small>Desenvolvedora FullStack</small>
+                <p>Aluna da escola CIMOL, é a cabeça por trás da aplicação</p>
+            </div>
+        </div>
+        <div class="col-4 card">
+            <div class="col-6 offset-3 p-2">
+                <img class="rounded-circle" src="image/candido.jpeg" alt="">
+            </div>
+            <div>
+                <h5>CÂNDIDO DE FARIAS</h5>
+                <small>Orientador</small>
+                <p>Professor de criação de sites e projeto de pesquisa no CIMOL.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+  <div id="cont">chama no zap</div>
+</div>
+<%- include('layout/nao-cadastrado/footer') %>

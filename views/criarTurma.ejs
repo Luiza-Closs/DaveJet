@@ -1,0 +1,40 @@
+<%- include('layout/cadastrado/header') %>
+<nav class="nav navi nav-underline justify-content-between">
+    <a class="nav-item nav-link link-body-emphasis active" href=""
+      >Criar Turma</a
+    >
+    <a class="nav-item nav-link link-body-emphasis" href="#serv">Cadastrar Aluno</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#equi"
+      >Ver médias</a
+    >
+  </nav>
+<div class="main">
+    <div class="conteiner justify-content-center">
+        <form action="/criarTurma" method="post">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
+            </div>
+            <div>
+                <label for="turma">Fase:</label>
+                <select name="fase" id="fase">
+                    <option value="'primeiro'"> primeiro ano </option>
+                    <option value="'segundo'"> segundo ano </option>
+                    <option value="'terceiro'"> terceiro ano </option>
+                    <option value="'quarto'"> quarto ano </option>
+                </select>
+            </div>
+            <div>
+                <label for="turma">Fase:</label>
+                <select name="id_coordenacao" id="fase">
+                    <option value="1"> Escola tal </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Adicionar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+<%- include('layout/cadastrado/footer') %>
