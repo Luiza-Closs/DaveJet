@@ -78,8 +78,8 @@ app.get('/criarTurma', async( req, res ) =>{
     try{
         res.render('criarTurma')
     } catch(e){
-        console.error(e);
-        res.status(400).json({message:'Erro ao criar a turma'})
+        console.error(e)
+        res.status(400).json({message:'Erro ao criar a turma'});
     }
 })
 app.post('/criarTurma', turmaController.criarTurma)
