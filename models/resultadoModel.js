@@ -25,6 +25,9 @@ class Resultado {
             })
         })
     }
+    updateResults(id){
+        const query = `updade `
+    }
     //listar resultado
     listResult(){
         const query = `select * from where id_aluno = ${this.id_aluno}`

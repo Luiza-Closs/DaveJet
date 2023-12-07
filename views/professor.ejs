@@ -1,0 +1,20 @@
+<%- include('layout/cadastrado/header') %>
+<nav class="nav navi nav-underline justify-content-between">
+    <a class="nav-item nav-link link-body-emphasis active" href="#Oque">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#equi">Conheça a equipe</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#cont">Entre em contato</a>
+</nav>
+<div class="main">
+    <div> 
+        <% for (const info of infoTotal) { %>
+            <% if (info.tipo === 'turma') { %>
+                <h2>Turma: <%= info.dados.nome %></h2>
+            <% } else if (info.tipo === 'aluno') { %>
+                <p><%= info.dados.nome %></p>
+            <% } %>
+        <% } %> 
+    </div>
+</div>
+
+<%- include('layout/cadastrado/footer') %>

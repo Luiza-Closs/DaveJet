@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style/bootstrap.css" />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -15,11 +15,7 @@
                 <h3>Cadastrar Usuario</h3>
             </div>
             <div>
-                <form action="/cadastro" method="post">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="nome completo" name="nome">
-                        <label for="floatingInput">Nome:</label>
-                    </div>
+                <form action="/autenticar" method="post">
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="nome@exemplo.com" name="email">
                         <label for="floatingInput">Email:</label>
@@ -27,21 +23,6 @@
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control rounded-3" id="floatingInput" placeholder="nome completo" name="senha">
                         <label for="floatingInput">Senha:</label>
-                    </div>
-
-                    <div>
-                        <label for="escola">Escola: </label>
-                        <select name="id_escola" id="id_escola">
-                            <% escolas.forEach(escola =>{ %>
-                            <option value="<%= escola.id_escola %>"><%=escola.nome %></option>
-                            <% })%>
-                            <option value="null">Nenhuma listada a cima</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="especializacao">Eu sou:</label>
-                        <input type="radio" name="proficao" id="" value="Professor(a)">Professor(a)
-                        <input type="radio" name="proficao" id="" value="Coordenador(a)">Coordenador(a)
                     </div>
                     <div>
                         <button type="submit">Cadastrar</button>

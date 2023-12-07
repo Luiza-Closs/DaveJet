@@ -1,4 +1,7 @@
-const connection = require('../database/db')
+const connection = require('../database/db');
+const util = require("util");
+
+const queryPromise = util.promisify(connection.query).bind(connection);
 
 class Jogo {
     constructor (id_jogo, nome, dificultade, categoria, caminho){
@@ -22,17 +25,17 @@ class Jogo {
             })
         })
     }
-    achar(){
-        let query = `select caminho from jogo where id_jogo = ${this.id_jogo}`;
-        return new Promise((resolve, reject) => {
-            connection.query(query, function(err, results){
-                if(err){
-                    reject("Erro na consulta");
-                }else{
-                    resolve(results);
-                }
-            })
-        })
+    static async acharJogo(jogoId){
+        let query = `select * from jogo where id_jogo = ${jogoId}`;
+        let result = (await queryPromise(query));
+
+        result = JSON.parse(JSON.stringify(result));
+        if (result.length === 0) {
+            return null;
+        } else {
+            result = result[0];
+            return result;
+        }
     }
 }
 

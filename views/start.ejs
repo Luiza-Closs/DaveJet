@@ -1,70 +1,92 @@
-<%- include('layout/nao-cadastrado/header') %>
-<nav class="nav navi nav-underline justify-content-between">
-  <a class="nav-item nav-link link-body-emphasis active" href="#Oque"
-    >Sobre nós</a
-  >
-  <a class="nav-item nav-link link-body-emphasis" href="#serv">Serviços</a>
-  <a class="nav-item nav-link link-body-emphasis" href="#equi"
-    >Conheça a equipe</a
-  >
-  <a class="nav-item nav-link link-body-emphasis" href="#cont"
-    >Entre em contato</a
-  >
-</nav>
-<div class="main">
-    <br>
-  <div class="col-12 row">
-    <div class="col-4">
-      <img src="image/dave_feliz.png" alt="" />
-    </div>
-    <div class="col-8">
-      <div class="caixa-texto">
-        <h3>PREPARE-SE PARA DECOLAR COM O DAVE.JET!</h3>
-        <div class="col-7">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dave.jet</title>
+    <link rel="stylesheet" href="style/bootstrap.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+  </head>
+  <body>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none logo">
+          <img src="/image/logo.png" alt="Dave.jet">
+        </a>
+      </div>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-entrar" href="">Entrar</button>
+        <button type="button" class="btn btn-cadastrar"><a href="/cadastro" style="color: #fff;">Cadastrar</a></button>
+      </div>
+    </header>
+    <nav class="nav navi nav-underline justify-content-between">
+      <a class="nav-item nav-link link-body-emphasis active" href="#Oque"
+        >Sobre nós</a
+      >
+      <a class="nav-item nav-link link-body-emphasis" href="#serv">Serviços</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#equi"
+        >Conheça a equipe</a
+      >
+      <a class="nav-item nav-link link-body-emphasis" href="#cont"
+        >Entre em contato</a
+      >
+    </nav>
+    <div class="main">
+      <br>
+      <div class="col-12 row">
+        <div class="col-4">
+          <img src="image/dave_feliz.png" alt="" />
+        </div>
+        <div class="col-8">
+          <div class="caixa-texto">
+            <h3>PREPARE-SE PARA DECOLAR COM O DAVE.JET!</h3>
+            <div class="col-7">
+              <p>
+                Descubra como tornar o ensino da fase alfabética uma experiência
+                cativante e repleta de resultados positivos
+              </p>
+            </div>
+          </div>
+          <div class="col-5 offset-7 planeta">
+            <img src="image/Planeta02.png" alt="" />
+          </div>
+        </div>
+        <div class="col-9 align-items-center">
+          <h3>
+            COM UMA INTERFACE CONVIDATIVA, DAVE.JET APRESENTA UMA NOVA FORMA DE
+            INTEGRAR JOGOS COM EDUCAÇÃO
+          </h3>
+        </div>
+        <div class="col-12 align-items-center">
           <p>
-            Descubra como tornar o ensino da fase alfabética uma experiência
-            cativante e repleta de resultados positivos
+            Apresentando mais de tres interfaces diferentes, a plataforma apresenta
+            um jogo educativo para alunos e um relatório de execução para
+            professores e administrações
           </p>
         </div>
       </div>
-      <div class="col-5 offset-7 planeta">
-        <img src="image/Planeta02.png" alt="" />
-      </div>
-    </div>
-    <div class="col-9 align-items-center">
-      <h3>
-        COM UMA INTERFACE CONVIDATIVA, DAVE.JET APRESENTA UMA NOVA FORMA DE
-        INTEGRAR JOGOS COM EDUCAÇÃO
-      </h3>
-    </div>
-    <div class="col-12 align-items-center">
-      <p>
-        Apresentando mais de tres interfaces diferentes, a plataforma apresenta
-        um jogo educativo para alunos e um relatório de execução para
-        professores e administrações
-      </p>
-    </div>
-  </div>
-  <hr>
-  <div class="row col-12">
-    <div>
-        <h3 id="Oque">SOBRE NÓS</h3>
-        <p> Dave.jet é um site educacional voltado para crianças em fase de alfabetização. Nosso objetivo é tornar o aprendizado algo mais divertido e envolvente, tanto pro aluno, quanto para o professor.</p>
-        <div class="row col-12">
+      <hr>
+      <div class="row col-12">
+        <div>
+          <h3 id="Oque">SOBRE NÓS</h3>
+          <p> Dave.jet é um site educacional voltado para crianças em fase de alfabetização. Nosso objetivo é tornar o aprendizado algo mais divertido e envolvente, tanto pro aluno, quanto para o professor.</p>
+          <div class="row col-12">
             <div class="col-9">
                 <p> Nosso diferencial aos outros jogos é o nosso sistema de feedback, para o aluno é um jogo normal, porém todas as pontuações estao sendo gravadas e mostradas para o professor, erros acertos e a quantidade de vezes realizada. Assim a plataforma pode ser usada para encontrar as principais dificuldades dos alunos e transformar a sala de aula, um lugar de aprendizado mais acertivo.</p>
             </div>
             <div class="col-3">
                 <img src="image/Nave.png" alt="">
             </div>
+          </div>
         </div>
-    </div>
-  </div>
-  <hr>
-  <div>
-    <h3 id="serv">SERVIÇOS</h3>
-    <div class="gap-1 row col-12 justify-content-center">
-        <div class="card text-white mb-2 col-8">
+      </div>
+      <hr>
+      <div>
+        <h3 id="serv">SERVIÇOS</h3>
+        <div class="gap-1 row col-12 justify-content-center">
+          <div class="card text-white mb-2 col-8">
             <div class="card-body">
                 <h5 class="card-title"><span class="material-symbols-outlined" style="color: #f2ae4b">
                     your_trips
@@ -102,7 +124,7 @@
             <div>
                 <h5>LUIZA CLOSS</h5>
                 <small>Desenvolvedora FullStack</small>
-                <p>Aluna da escola CIMOL, é a cabeça por trás da aplicação</p>
+                <p>Aluna da escola CIMOL, desenvolvedora da aplicação.</p>
             </div>
         </div>
         <div class="col-4 card">
@@ -120,4 +142,22 @@
   <hr>
   <div id="cont">chama no zap</div>
 </div>
-<%- include('layout/nao-cadastrado/footer') %>
+<footer class="py-3 my-4">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+  </ul>
+  <div class="social-links d-none d-md-flex align-items-center">
+    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+  </div>
+  <p class="text-center text-body-secondary">© 2023 CIMOL</p>
+  <p class="text-center text-body-secondary">@luiza_closs</p>
+</footer>
+</body>
+</html>

@@ -15,6 +15,7 @@
             <th>Descrição</th>
             <th>Dificuldade</th>
             <th>Categoria</th>
+            <th>Abrir Jogo</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
             <td><%= jogo.descricao %></td>
             <td><%= jogo.dificuldade %></td>
             <td><%= jogo.categoria %></td>
+            <td><button href="/abrirJogo/<%= jogo.id_jogo %>">Abrir jogo</button></td>
         </tr>
         <% }); %>
     </tbody>
@@ -33,7 +35,7 @@
     <% jogos.forEach(jogo => { %>
       <li>
         <strong><%= jogo.nome %></strong> - Dificuldade: <%= jogo.dificuldade %>, Categoria: <%= jogo.categoria %>
-        <a href="/jogo/<%= jogo.id_jogo %>">Ver Detalhes</a>
+        <a href="/abrirJogo/<%= jogo.id_jogo %>">Ver Detalhes</a>
       </li>
     <% }); %>
   </ul>

@@ -54,7 +54,18 @@ class Turma {
                 }
             })
         })
-
+    }
+    listId(id){
+        const query = `select * from turma where id_coordenacao = ?`
+        return new Promise ((resolve, reject) =>{
+            connection.query(query, id, (err, rows) =>{
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(rows);
+                }
+            })
+        })
     }
 }
 

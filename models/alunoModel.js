@@ -8,7 +8,7 @@ class Aluno {
     }
     //listar de turma
     listar_de_turma(turmaId){
-        const query = 'select * from aluno where id_turma ='+turmaId;
+        const query = `select * from aluno where id_turma in (${turmaId.join(', ')})`;
         return new Promise(( resolve, reject) =>{
             connection.query(query , (err, results)=>{
                 if(err){

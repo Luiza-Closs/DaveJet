@@ -11,15 +11,16 @@ async function listarJogos(req, res){
     }
 }
 
-async function encontrarJogo (req, res){
-    try{
-        const caminho = await Jogo.achar(req.params.id);
-        const caminhoCompleto = `/game${caminho}/script.js`;
-        console.log({ caminhoCompleto })
-        res.json({ caminhoCompleto });
-    } catch ( e ){
-        res.status(404).json({ error: 'Não foi possível localizar o jogo.' })
-    }
+async function encontrarJogo(id) {
+    console.log('entrou no controler encontrar Jogo');
+
+    const jogo = await Jogo.acharJogo(id);
+
+    return jogo;
+}
+
+function receberResultado(req, res) {
+
 }
 
 module.exports = {
