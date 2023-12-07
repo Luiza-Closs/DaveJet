@@ -1,9 +1,9 @@
 const { Usuario } = require('../models/userModel');
 
-function cadastroController(req, res){
+async function cadastroController(req, res){
     const { id, nome, email, senha, id_escola, proficao} = req.body;
     const novoUser = new Usuario( id, nome, email, senha, id_escola );
-    const idUsuario = novoUser.cadastrar(id_escola, proficao);
+    const idUsuario = await novoUser.cadastrar(id_escola, proficao);
 
     if (proficao === 'Professor(a)' || proficao === 'Coordenador(a)') {
         res.redirect(`/professor/${idUsuario}`);

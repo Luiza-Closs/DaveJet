@@ -59,10 +59,15 @@ router.get('/professor/:id_usuario', async(req, res) => {
     try{
         const id = req.params.id_usuario;
         const turmas = await new Turma().listId(id);
-        const idsTurmas = turmas.map(turma => turma.id_turma);
-        const alunos = await new Aluno().listar_de_turma(idsTurmas);
-
         const infoTotal = [];
+        if( turmas.length == 0){
+            infoTotal.push({
+                tipo:'avizo',
+                mensagem:`Não há turmas cadastradas para o professor ${req.params.nome}`
+            })
+        } else{
+            const idsTurmas = turmas.map(turma => turma.id_turma);
+        const alunos = await new Aluno().listar_de_turma(idsTurmas);
 
         for(const turma of turmas){
             infoTotal.push({
@@ -77,6 +82,8 @@ router.get('/professor/:id_usuario', async(req, res) => {
                 })
             }
         }
+        }
+        
         res.render('professor', {infoTotal})
         
     } catch (error) {

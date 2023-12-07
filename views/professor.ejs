@@ -8,7 +8,9 @@
 <div class="main">
     <div> 
         <% for (const info of infoTotal) { %>
-            <% if (info.tipo === 'turma') { %>
+            <% if(info.tipo === 'avizo') { %>
+                <h2>Este professor não tem nenhuma turma cadatrada</h2>
+            <%} else if (info.tipo === 'turma') { %>
                 <h2>Turma: <%= info.dados.nome %></h2>
             <% } else if (info.tipo === 'aluno') { %>
                 <p><%= info.dados.nome %></p>
