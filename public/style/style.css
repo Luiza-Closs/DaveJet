@@ -106,7 +106,7 @@ hr{
 
 
 /* ------ COBRINHA -------- */
-
+/*
 #all-game{
   position: absolute;
   width: 70vw;
@@ -122,7 +122,7 @@ hr{
   border: 1vmin #4b220c solid;
   border-radius: 3vh;
   margin-top: 22vh;
-  /*margin-left: 20vw;*/
+  /*margin-left: 20vw;
   background-image: url("../image/Frame 3.png");
   background-size: cover;
   background-position: center center;

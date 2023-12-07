@@ -16,3 +16,5 @@ export function pintarLetra(letra) {
   }
   return;
 }
+
+module.exports = letrasPintadas;

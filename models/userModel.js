@@ -43,8 +43,8 @@ class Usuario {
         console.log('é coordenador');
         await this.coordenador(idPessoa);
       }
-
-      return "Pessoa e usuário adicionados com sucesso";
+      
+      return idPessoa;
     } catch (error) {
       console.error(error);
       throw error; // Propaga o erro para quem chamou a função
@@ -110,7 +110,7 @@ class Usuario {
   }
   coordenador(id){
     try{
-      const query = `insert into coordenador (id_coordenador) value (${id})`;
+      const query = `insert into coordenacao (id_coordenacao) value (${id})`;
       const result = this.executarQuery(query);
       if(result[0] == 0){
         throw new Error('Erro no cadastro do coordenador');
