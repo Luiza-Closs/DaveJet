@@ -1,15 +1,12 @@
 <%- include('layout/cadastrado/header') %>
 <nav class="nav navi nav-underline justify-content-between">
-    <a class="nav-item nav-link link-body-emphasis active" href=""
-      >Criar Turma</a
-    >
-    <a class="nav-item nav-link link-body-emphasis" href="#serv">Cadastrar Aluno</a>
-    <a class="nav-item nav-link link-body-emphasis" href="#equi"
-      >Ver médias</a
-    >
-  </nav>
+    <a class="nav-item nav-link link-body-emphasis active" href="/professor/:id">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma">Cadastrar Turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno">Adicionar Aluno</a>
+</nav>
 <div class="main">
-    <div class="conteiner justify-content-center">
+    <div class="container justify-content-center p-5">
         <form action="/criarTurma" method="post">
             <div>
                 <label for="nome">Nome:</label>
@@ -35,6 +32,5 @@
             </div>
         </form>
     </div>
-    
 </div>
 <%- include('layout/cadastrado/footer') %>

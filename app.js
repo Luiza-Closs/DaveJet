@@ -8,7 +8,7 @@ const router = require('./routers/routers')
 
 database.connect((err) => {
     if(err){
-        console.log("Erro ao conectar: ", err)
+        console.log("Erro ao conectar: ", err);
         return
     }
     console.log("Conexão bem sucedida")
@@ -21,5 +21,5 @@ app.use(express.static("public"))
 app.use('/', router);
 
 app.listen(PORT, () => {
-    console.log(`Server started at http://localhost:${PORT}`);
+    console.log(`Server started at http://localhost:${PORT}`)
 });

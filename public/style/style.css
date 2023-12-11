@@ -104,9 +104,131 @@ hr{
   background-color: #fff;
 }
 
+/*Botões jogo*/
+#restart {
+  position: absolute;
+  width: 10vw;
+  height: 10vh;
+  padding: 0vh 0vw 0vh 70vw;
+}
+#btn-1 {
+  background-color: #F2AE4B;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 100px;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 8px 8px #4b220c;
+}
+#mapa {
+  position: absolute;
+  width: 10vw;
+  height: 10vh;
+  padding: 0vh 0vw 0vh 82vw;
+}
+#btn-2 {
+  background-color: #65B3C7;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 100px;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 8px 8px #4b220c;
+}/*
+#game-board {
+  border: 1vmin #4b220c solid;
+  border-radius: 3vh;
+  margin-top: 22vh;
+  /* margin-left: 20vw; 
+  background-image: url(../../Dave-Img/Frame 3.png);
+  background-size: cover;
+  background-position: center center;
+  width: 70vmin;
+  height: 70vmin;
+  display: grid;
+  grid-template-rows: repeat(10, auto);
+  grid-template-columns: repeat(10, auto);
+}*/
+/*Jogo da memoria*/
+.memory-game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40vw;
+  height: 70vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 10vw;
+  height: 15vh;
+  margin: 0.25vh 0.25vw 0.25vh 0.25vw;
+  perspective: 1000px;
+}
+
+.front-face, .back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.front-face {
+  background-color: #65B3C7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back-face{
+  background-color: #F2AE4B;
+}
+
+.card.flipped .back-face {
+  transform: rotateY(0deg);
+  animation: subirDescer 2s ease-in-out;
+}
+
+.card.flipped .front-face {
+  transform: rotateY(180deg);
+  animation: subirDescer 2s ease-in-out;
+}
+
+.card:not(.flipped) .back-face {
+  transform: rotateY(180deg);
+}
+
+.card:not(.flipped) .front-face {
+  transform: rotateY(0deg);
+}
+
+.matched {
+  pointer-events: none;
+  opacity: 0.6;
+  animation: subirDescer 2s ease-in-out;
+}
+
+@keyframes subirDescer {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5vh);
+  }
+}
+
+#all-game{
+  position: absolute;
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+
+  margin: 0; 
+}
 
 /* ------ COBRINHA -------- */
-/*
+
 #all-game{
   position: absolute;
   width: 70vw;
@@ -122,7 +244,7 @@ hr{
   border: 1vmin #4b220c solid;
   border-radius: 3vh;
   margin-top: 22vh;
-  /*margin-left: 20vw;
+  margin-left: 20vw;
   background-image: url("../image/Frame 3.png");
   background-size: cover;
   background-position: center center;

@@ -24,36 +24,21 @@ router.get('/cadastro', async(req, res) =>{
         const escolas = await new Escola().list();
         res.render('cadastro', {escolas:escolas})
     } catch(e){
-        console.error(e);
-        res.status(500).json({message:'erro ao carregar turmas'})
+        console.error(e)
+        res.status(500).json({message:'erro ao carregar turmas'});
     }
 })
 router.post('/cadastro', cadastroController.cadastroController)
 
 router.get('/autenticar', async(req, res) =>{
+    console.log('clicado em autenticar');
     try{
         res.render('autenticar')
     } catch(e){
         console.error(e);
     }
 })
-router.post('/autenticar', async(req, res) =>{
-    try{
-        console.log(req.body.email)
-        if(req.body.email == 'adimin@gmail.com'){
-            if(req.body.senha == '123456'){
-                console.log('logado com sucesso')
-                req.session.login = login;
-            } else{
-                console.log('Senha Incorreta')
-            }
-        } else {
-            console.log('Email Incorreto')
-        }
-    } catch(e){
-        console.log(e);
-    }
-})
+router.post('/autenticar', cadastroController.autenticar)
 
 router.get('/professor/:id_usuario', async(req, res) => {
     try{
@@ -141,5 +126,13 @@ router.get('/criarTurma', async( req, res ) =>{
     }
 })
 router.post('/criarTurma', turmaController.criarTurma)
+
+router.get('/inicioDeJogo/:id_turma/:id_escola', async(req, res) =>{
+    const id_turma = req.params.id_turma;
+    const id_escola = req.params.id_escola;
+    console.log(id_turma);
+    console.log(id_escola);
+    res.render('main')
+})
 
 module.exports = router

@@ -4,6 +4,7 @@ import { randomGridPosition } from "./grid.js";
 import { letras, indiceAtual, pintarLetra } from "./palavra.js";
 
 console.log(letras);
+console.log(indiceAtual);
 let food = getRandomFoodPosition();
 
 const EXPANSION_RATE = 1;

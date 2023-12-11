@@ -43,7 +43,7 @@ class Usuario {
         console.log('é coordenador');
         await this.coordenador(idPessoa);
       }
-      
+
       return idPessoa;
     } catch (error) {
       console.error(error);
@@ -52,7 +52,7 @@ class Usuario {
   }
 
   // Função auxiliar para executar consultas
-  executarQuery(query, params) {
+  static async executarQuery(query, params) {
     return new Promise((resolve, reject) => {
       connection.query(query, params, (error, result) => {
         if (error) {
@@ -64,7 +64,7 @@ class Usuario {
     });
   }
 
-  acharEmail(email){
+  static acharEmail(email){
     try{
       const query = `select id_pessoa from pessoa where email = '${email}'`
       const result = this.executarQuery(query);
@@ -78,7 +78,7 @@ class Usuario {
     }
   }
 
-  conferirSenha(id, senha){
+  static conferirSenha(id, senha){
     try{
       const query = `select senha from usuario where id_usuario = ${id}`
       const result = this.executarQuery(query);

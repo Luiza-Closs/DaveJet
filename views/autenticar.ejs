@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
-    <div class="container telin col-12 row mx-auto mt-5">
-        <div class="col-6">
+    <div class="telin col-12 row mx-auto mt-5" style="border-radius: 30px;">
+        <div class="col-6 container p-5">
             <div>
                 <h3>Cadastrar Usuario</h3>
             </div>
@@ -25,19 +25,17 @@
                         <label for="floatingInput">Senha:</label>
                     </div>
                     <div>
-                        <button type="submit">Cadastrar</button>
+                        <button type="submit">Entrar</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="col-6 align-items-center" style="background-color: #f2ae4b;">
-            <div class="align-items-center">
-                <h1>Bem vindo(a) ao nosso site!</h1>
+        <div class="col-6 container p-5" style="background-color: #f2ae4b; border-radius: 0 30px 30px 0;">
+            <div class="align-items-center my-5">
+                <h1>Que bom te ter de volta!</h1>
+                <p>Não possui uma conta?</p>
+                <button class="btn btn-cadastrar"><a href="/cadastro" style="color: #fff;">Cadastrar</a></button>  
             </div>
-            <div class="txt msg">
-                <p>Já possui uma conta?</p>
-            </div>
-            <button class="btn btn-cadastrar"><a href="/autenticar" style="color: #fff;">Entrar</a></button> 
         </div>
     </div>
 </body>

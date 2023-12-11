@@ -1,5 +1,12 @@
 <%- include('layout/cadastrado/header') %>
-<div class="container">
+<nav class="nav navi nav-underline justify-content-between">
+    <a class="nav-item nav-link link-body-emphasis active" href="/professor/:id">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma">Cadastrar Turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno">Adicionar Aluno</a>
+</nav>
+<div class="main">
+    <div class="container p-5">
     <form action="/cadastroAluno" method="post">
         <div>
             <label for="nome">Nome:</label>
@@ -17,5 +24,6 @@
             <button type="submit">Adicionar</button>
         </div>
     </form>
+    </div>
 </div>
 <%- include('layout/cadastrado/footer') %>

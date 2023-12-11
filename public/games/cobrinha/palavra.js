@@ -1,4 +1,4 @@
-const letrasPintadas = new Set();
+export const letrasPintadas = new Set();
 const palavra = "ABACAXI";
 export const letras = palavra.split("");
 export let indiceAtual = 0;
@@ -16,5 +16,3 @@ export function pintarLetra(letra) {
   }
   return;
 }
-
-module.exports = letrasPintadas;
