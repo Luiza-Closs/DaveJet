@@ -1,17 +1,25 @@
 <%- include('layout/cadastrado/header') %>
 <nav class="nav navi nav-underline justify-content-between">
-    <a class="nav-item nav-link link-body-emphasis active" href="/professor/:id">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis active" href="/professor/<%= id_usuario %>">Resultados Alunos</a>
     <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma">Cadastrar Turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno">Adicionar Aluno</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma/<%= id_usuario %>">Cadastrar Turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno/<%= id_usuario %>">Adicionar Aluno</a>
 </nav>
 <div class="main">
     <div class="container" style="padding-bottom: 2vh; "> 
+        <br>
         <% for (const info of infoTotal) { %>
             <% if(info.tipo === 'avizo') { %>
                 <h2 style="height: 66vh;">Este professor não tem nenhuma turma cadatrada</h2>
             <%} else if (info.tipo === 'turma') { %>
-                <h2>Turma: <%= info.dados.nome %></h2>
+                <div class="row">
+                    <div class="col-md">
+                        <h2>Turma: <%= info.dados.nome %></h2>
+                    </div>
+                    <div class="col-md">
+                        <a class="btn btn-success" href="/inicioDeJogo/<%= info.dados.id_turma %>">Ir para jogos</a>
+                    </div>
+                </div>
             <% } else if (info.tipo === 'aluno') { %>
                 <p><%= info.dados.nome %></p>
             <% } %>

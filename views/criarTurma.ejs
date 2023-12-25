@@ -1,34 +1,31 @@
 <%- include('layout/cadastrado/header') %>
 <nav class="nav navi nav-underline justify-content-between">
-    <a class="nav-item nav-link link-body-emphasis active" href="/professor/:id">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis active" href="/professor/<%= id_usuario %>">Resultados Alunos</a>
     <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma">Cadastrar Turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno">Adicionar Aluno</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma/<%= id_usuario %>">Cadastrar Turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno/<%= id_usuario %>">Adicionar Aluno</a>
 </nav>
 <div class="main">
     <div class="container justify-content-center p-5">
+        <h1>Criar Turma</h1>
         <form action="/criarTurma" method="post">
+            <input type="number" value="<%= id_usuario %>" hidden name="id_coordenacao" id="id_coordenacao">
             <div>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
+                <h6 for="nome">Nome:</h6>
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite aqui...">
             </div>
             <div>
-                <label for="turma">Fase:</label>
-                <select name="fase" id="fase">
+                <h6 for="turma">Fase:</h6>
+                <select class="form-control" name="fase" id="fase">
                     <option value="'primeiro'"> primeiro ano </option>
                     <option value="'segundo'"> segundo ano </option>
                     <option value="'terceiro'"> terceiro ano </option>
                     <option value="'quarto'"> quarto ano </option>
                 </select>
             </div>
+            <br>
             <div>
-                <label for="turma">Fase:</label>
-                <select name="id_coordenacao" id="fase">
-                    <option value="1"> Escola tal </option>
-                </select>
-            </div>
-            <div>
-                <button type="submit">Adicionar</button>
+                <button class="btn btn-cadastrar" type="submit">Adicionar</button>
             </div>
         </form>
     </div>

@@ -1,27 +1,30 @@
 <%- include('layout/cadastrado/header') %>
 <nav class="nav navi nav-underline justify-content-between">
-    <a class="nav-item nav-link link-body-emphasis active" href="/professor/:id">Resultados Alunos</a>
+    <a class="nav-item nav-link link-body-emphasis active" href="/professor/<%= id_usuario %>">Resultados Alunos</a>
     <a class="nav-item nav-link link-body-emphasis" href="#serv">Média da turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma">Cadastrar Turma</a>
-    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno">Adicionar Aluno</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/criarTurma/<%= id_usuario %>">Cadastrar Turma</a>
+    <a class="nav-item nav-link link-body-emphasis" href="/cadastroAluno/<%= id_usuario %>">Adicionar Aluno</a>
 </nav>
 <div class="main">
     <div class="container p-5">
+        <h1>Adicionar Aluno</h1>
     <form action="/cadastroAluno" method="post">
+        <input type="number" value="<%= id_usuario %>" hidden name="id_coordenacao" id="id_coordenacao">
         <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
+            <h6 for="nome">Nome:</h6>
+            <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite aqui...">
         </div>
         <div>
-            <label for="turma">Turma</label>
-            <select name="id_turma" id="id_turma">
+            <h6 for="turma">Turma</h6>
+            <select class="form-control" name="id_turma" id="id_turma">
                 <% turmas.forEach (turma => { %>
                     <option value="<%=turma.id_turma %>"><%= turma.nome %></option>
                 <% }); %>    
             </select>
         </div>
+        <br>
         <div>
-            <button type="submit">Adicionar</button>
+            <button class="btn btn-cadastrar" type="submit">Adicionar</button>
         </div>
     </form>
     </div>

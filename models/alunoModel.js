@@ -19,6 +19,18 @@ class Aluno {
             })
         })
     }
+    listar_da_turma(turmaId){
+        const query = `select * from aluno where id_turma = ${turmaId}`;
+        return new Promise(( resolve, reject) =>{
+            connection.query(query , (err, results)=>{
+                if(err){
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            })
+        })
+    }
     //deletar
     deletar(id_aluno){
         const query = `delete from aluno where id_aluno=${id_aluno}`;

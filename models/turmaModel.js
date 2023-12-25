@@ -43,8 +43,8 @@ class Turma {
             })
         } )
     }
-    list(){/*where id_coordenacao = ${this.id_coordenacao}*/
-        const query = `select * from turma`
+    list(id_coordenacao){/**/
+        const query = `select * from turma where id_coordenacao = ${id_coordenacao}`
         return new Promise ((resolve, reject) =>{
             connection.query(query, (err, rows) =>{
                 if(err){
@@ -57,6 +57,18 @@ class Turma {
     }
     listId(id){
         const query = `select * from turma where id_coordenacao = ?`
+        return new Promise ((resolve, reject) =>{
+            connection.query(query, id, (err, rows) =>{
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(rows);
+                }
+            })
+        })
+    }
+    find(id){
+        const query = `select * from turma where id_turma = ?`
         return new Promise ((resolve, reject) =>{
             connection.query(query, id, (err, rows) =>{
                 if(err){

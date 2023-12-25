@@ -1,0 +1,35 @@
+<%- include('layout/cadastrado/header') %>
+<div class="main" style="background-color: #2d328e">
+  <div class="row">
+    <div class="col-8">
+      <div
+        class="main"
+        style="
+          border-top: 5px solid #4b220c;
+          border-bottom: 10px solid #4b220c;
+          border-left: 5px solid #4b220c;
+          border-right: 10px solid #4b220c;
+        "
+      >
+        <h1>Bem vindo viajante! Poderia me informar o seu nome?</h1>
+      </div>
+
+      <div class="container p-5">
+        <div class="row itens-align-center">
+          <% alunos.forEach(function(aluno) { %>
+          <div class="col-md p-1">
+            <h1 class="btn btn-danger">
+              <a style="color: aliceblue; font-size: x-large;" href="/listaJogo/<%= aluno.id_aluno %>"><%= aluno.nome %></a>
+            </h1>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md" style="width: 25vw">
+      <img src="/image/dave_feliz.png" alt="" />
+    </div>
+  </div>
+  <br />
+</div>
+<%- include('layout/cadastrado/footer') %>

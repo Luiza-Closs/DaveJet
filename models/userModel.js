@@ -38,7 +38,7 @@ class Usuario {
       const resultUsuario = await this.executarQuery(queryUsuario, [idPessoa]);
       if( proficao == "Professor(a)" ){
         console.log('é professor');
-        await this.Professor(idPessoa);
+        await this.coordenador(idPessoa);        
       } else if( proficao == "Coordenador(a)"){
         console.log('é coordenador');
         await this.coordenador(idPessoa);
@@ -52,7 +52,7 @@ class Usuario {
   }
 
   // Função auxiliar para executar consultas
-  static async executarQuery(query, params) {
+  executarQuery(query, params) {
     return new Promise((resolve, reject) => {
       connection.query(query, params, (error, result) => {
         if (error) {

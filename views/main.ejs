@@ -90,7 +90,7 @@ header{
 <body>
     <header>
         <div id="id-escola-e-turma">
-            <p>{nome da escola} - {nome da turma}</p>
+            <p><%= turma.nome %></p>
         </div>
     </header>
     <main>
@@ -115,7 +115,7 @@ header{
             </div>
         </div>
         <div id="botao">
-            <a href="../Inserir-nome/">
+            <a href="/escolherNome/<%=turma.id_turma%>">
                 <input id="btn" type="button" value="ENTRAR">
             </a>
         </div>

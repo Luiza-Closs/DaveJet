@@ -9,6 +9,7 @@ async function criarTurma(req, res){
         .create(id_coordenacao)
         .then(() => console.log('turma cadastrada'))
         console.log(novaTurma);
+        res.redirect('professor/'+id_coordenacao)
 }
 
 module.exports ={

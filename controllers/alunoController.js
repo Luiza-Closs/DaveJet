@@ -6,14 +6,15 @@ async function criarAluno (req, res){
     /*const turmaId = req.session.turma.id_turma
     turma = await Turma.findById(turmaId)*/
 
-    const { id, nome, id_turma } = req.body;
+    const { id, nome, id_turma, id_coordenacao } = req.body;
     const novoAluno = new Aluno( id, nome, id_turma)
     console.log(novoAluno);
     novoAluno
         .adicionar(id_turma)
         .then(() => console.log("Criança cadastrada com sucesso!"))
         console.log(novoAluno);
-    
+        res.redirect('professor/'+id_coordenacao)
+        
 }
 
 //deletar

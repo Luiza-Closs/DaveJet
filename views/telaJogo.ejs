@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +22,7 @@
         <div id="settings">
           <div id="restart">
             <div id="btn-1">
-              <a href="/abrirJogo/<%- jogo.id_jogo %>">
+              <a href="/abrirJogo/<%= jogo.id_jogo %>/<%= id_aluno %>">
                 <span class="material-symbols-outlined" style="width: 100%; height: 100%; font-size: 7vw; margin-top: 1.5vw; color: white;">
                   refresh
                   </span>
@@ -32,7 +30,7 @@
             </div>
           </div>
           <div id="mapa">
-            <div id="btn-2"><a href="/listaJogo">
+            <div id="btn-2"><a href="/listaJogo/<%= id_aluno %>">
               <span class="material-symbols-outlined" style="width: 100%; height: 100%; font-size: 7vw; margin-top: 1.5vw; color: white;">
                 map
                 </span>

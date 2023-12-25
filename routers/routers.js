@@ -69,7 +69,7 @@ router.get('/professor/:id_usuario', async(req, res) => {
         }
         }
         
-        res.render('professor', {infoTotal})
+        res.render('professor', { infoTotal, id_usuario: id });
         
     } catch (error) {
         console.error(error);
@@ -77,10 +77,11 @@ router.get('/professor/:id_usuario', async(req, res) => {
     }
 })
 
-router.get('/cadastroAluno', async(req, res) =>{
+router.get('/cadastroAluno/:id_usuario', async(req, res) =>{
     try{
-        const turmas = await new Turma().list();
-        res.render('cadastroAluno', {turmas:turmas})
+        const id = req.params.id_usuario;
+        const turmas = await new Turma().list(id);
+        res.render('cadastroAluno', {turmas:turmas, id_usuario:id})
     } catch(e){
         console.error(e);
         res.status(400).json({message:'erro ao carregar turmas'})
@@ -88,11 +89,23 @@ router.get('/cadastroAluno', async(req, res) =>{
 })
 router.post('/cadastroAluno', AlunoController.criarAluno);
 
-router.get("/listaJogo", jogoController.listarJogos)
+router.get("/listaJogo/:id_aluno", async(req,res) =>{
+    try{
+        const id = req.params.id_aluno;
+        const jogos = await Jogo.listar();
+        console.log("ID_ALUNO:", id);
+        res.render('menuJogos.ejs', { jogos: jogos, id_aluno: id });
+    } catch(e){
+        console.error(e);
+        res.status(400).json({message:'erro ao carregar turmas'})
+    }
+})
 
-router.get('/abrirJogo/:id_jogo', async (req, res) =>{
+router.get('/abrirJogo/:id_jogo/:id_aluno', async (req, res) =>{
     try{
         const id = req.params.id_jogo
+        const id_aluno = req.params.id_aluno
+        console.log('id aluno =>', id_aluno)
         console.log("id=>",id);
         const jogo = await jogoController.encontrarJogo(id);
         console.log(await jogoController.encontrarJogo(id))
@@ -101,38 +114,39 @@ router.get('/abrirJogo/:id_jogo', async (req, res) =>{
             res.redirect('menuJogos')
         } else {
             console.log(jogo)
-            res.render('telaJogo', {jogo});
+            res.render('telaJogo', {jogo, id_aluno});
         }
     } catch(e){
         console.error(e);
         res.status(400).json({message:'erro ao carregar jogo'})
     }
 })
-router.post('/abrirJogo/:id', async(req, res) =>{
-    try{
-        
-    } catch(e){
+
+router.get('/criarTurma/:id_usuario', async (req, res) => {
+    try {
+        const id = req.params.id_usuario;
+        res.render('criarTurma', { id_usuario: id });
+    } catch (e) {
         console.error(e);
-
+        res.status(400).json({ message: 'Erro ao criar a turma' });
     }
-})
+});
 
-router.get('/criarTurma', async( req, res ) =>{
-    try{
-        res.render('criarTurma')
-    } catch(e){
-        console.error(e)
-        res.status(400).json({message:'Erro ao criar a turma'});
-    }
-})
 router.post('/criarTurma', turmaController.criarTurma)
 
-router.get('/inicioDeJogo/:id_turma/:id_escola', async(req, res) =>{
+router.get('/inicioDeJogo/:id_turma', async(req, res) =>{
     const id_turma = req.params.id_turma;
-    const id_escola = req.params.id_escola;
-    console.log(id_turma);
-    console.log(id_escola);
-    res.render('main')
+    const turmar = await new Turma().find(id_turma)
+    const turma = turmar[0]
+    console.log(turma);
+    res.render('main', {turma : turma})
+})
+
+router.get('/escolherNome/:id_turma', async(req,res) =>{
+    const id_turma = req.params.id_turma;
+    const aluno = await new Aluno().listar_da_turma(id_turma);
+    console.log(aluno)
+    res.render('nomeDoAluno', {alunos : aluno , id_turma })
 })
 
 module.exports = router

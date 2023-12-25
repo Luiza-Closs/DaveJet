@@ -1,36 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listagem de Jogos</title>
-</head>
-<body>
-  <h1>Listagem de Jogos</h1>
-
-  <table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Dificuldade</th>
-            <th>Categoria</th>
-            <th>Abrir Jogo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% jogos.forEach(jogo => {%>
-        <tr>
-            <td><%= jogo.nome %></td>
-            <td><%= jogo.descricao %></td>
-            <td><%= jogo.dificuldade %></td>
-            <td><%= jogo.categoria %></td>
-            <td><button href="/abrirJogo/<%= jogo.id_jogo %>">Abrir jogo</button></td>
-        </tr>
-        <% }); %>
-    </tbody>
-  </table>
-  
+<%- include('layout/cadastrado/header') %>
+<div class="container">
+  <input type="text" value="<%= id_aluno %>" id="id_aluno" hidden>
+  <div class="row">
+    <% jogos.forEach(jogo => { %>
+    <div class="col-4"> <a href="/abrirJogo/<%= jogo.id_jogo %>/<%= id_aluno %>">
+      <div class="image p-5">
+        <img src="/image/Planeta02.png" alt="">
+        <h3><strong><%=jogo.nome %></strong></h3>
+      </div>
+    </a></div>
+    <% }); %>
+  </div>
   <ul>
     <% jogos.forEach(jogo => { %>
       <li>
@@ -39,5 +19,6 @@
       </li>
     <% }); %>
   </ul>
-</body>
-</html>
+
+</div>
+<%- include('layout/cadastrado/footer') %>

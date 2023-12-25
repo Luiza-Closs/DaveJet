@@ -44,7 +44,7 @@ import {
   function main(currentTime) {
     if (gameOver) {
       if (confirm("Você perdeu")) {
-        location = "/cobrinha";
+        location ='/abrirJogo/1';
         return letrasPintadas;
       }
       return;

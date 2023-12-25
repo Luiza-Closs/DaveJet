@@ -5,17 +5,13 @@ async function cadastroController(req, res){
     const novoUser = new Usuario( id, nome, email, senha, id_escola );
     const idUsuario = await novoUser.cadastrar(id_escola, proficao);
 
-    if (proficao === 'Professor(a)' || proficao === 'Coordenador(a)') {
-        res.redirect(`/professor/${idUsuario}`);
-    } else {
-        res.redirect('/outra_pagina'); // Altere para a rota desejada
-    }
     console.log(novoUser);
     console.log(proficao);
     novoUser
         .cadastrar(id_escola, proficao)
         .then(()=> console.log("pessoa cadastrada!"))
         console.log(novoUser);
+        res.redirect(`/professor/${idUsuario}`)
 }
 
 function autenticar(req,res){
