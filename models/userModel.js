@@ -27,8 +27,8 @@ class Usuario {
       const queryUsuario = `INSERT INTO usuario (id_usuario, senha, id_escola) VALUES (?, '${senhazin}', ${id_escola})`;
       // Inserir nova pessoa
       const resultPessoa = await this.executarQuery(queryPessoa);
-      // Obter o ID da pessoa recém-inserida
       const resultIdPessoa = await this.executarQuery(queryIdPessoa);
+
       // Garantir que há um resultado válido antes de prosseguir
       if (resultIdPessoa.length === 0 || !resultIdPessoa[0].id_pessoa) {
         throw new Error("Erro ao obter o ID da pessoa recém-inserida");

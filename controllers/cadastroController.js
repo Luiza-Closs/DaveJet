@@ -1,18 +1,22 @@
 const { Usuario } = require('../models/userModel');
 
-async function cadastroController(req, res){
-    const { id, nome, email, senha, id_escola, proficao} = req.body;
-    const novoUser = new Usuario( id, nome, email, senha, id_escola );
-    const idUsuario = await novoUser.cadastrar(id_escola, proficao);
-
-    console.log(novoUser);
-    console.log(proficao);
-    novoUser
-        .cadastrar(id_escola, proficao)
-        .then(()=> console.log("pessoa cadastrada!"))
-        console.log(novoUser);
-        res.redirect(`/professor/${idUsuario}`)
-}
+async function cadastroController(req, res) {
+    try {
+      const { id, nome, email, senha, id_escola, proficao } = req.body;
+      const novoUser = new Usuario(id, nome, email, senha, id_escola);
+      const idUsuario = await novoUser.cadastrar(id_escola, proficao);
+  
+      console.log(novoUser);
+      console.log(proficao);
+      
+      console.log("pessoa cadastrada!");
+      console.log(novoUser);
+      res.redirect(`/professor/${idUsuario}`);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro no cadastro do usuário');
+    }
+  }
 
 function autenticar(req,res){
     const{email, senha} = req.body;
